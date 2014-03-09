@@ -37,4 +37,4 @@ include($_SERVER['FILE_PREFIX'] . '/_core/preamble.php') ;
   <img src="/images/tangles.png" style="display:none"/>
 </div>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/foot.php') ; ?>
+<?php foot() ; ?>
