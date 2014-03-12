@@ -570,7 +570,10 @@ function remake_cells(){
     for(var j=0 ; j<nCol ; j++){
       var r = Math.floor(4*Math.random()) ;
       var c = cells[i][j] ;
-      if(c.lines[0]==false && c.lines[1]==false && c.lines[2]==false && c.lines[1]==false) continue ;
+      if(c.lines[0]==false && c.lines[1]==false && c.lines[2]==false && c.lines[1]==false) r =   0 ;
+      if(c.lines[0]==true  && c.lines[1]==true  && c.lines[2]==true  && c.lines[1]==true ) r =   0 ;
+      if(c.lines[0]==true  && c.lines[1]==false && c.lines[2]==true  && c.lines[1]==false) r = r%2 ;
+      if(c.lines[0]==false && c.lines[1]==true  && c.lines[2]==false && c.lines[1]==true ) r = r%2 ;
       clicks_to_solve += (r==0) ? 0 : (4-r) ;
       for(var k=0 ; k<r ; k++){
         c.rotate(false) ;
