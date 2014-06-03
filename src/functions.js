@@ -600,6 +600,7 @@ function XY_from_mouse(evt){
   return [X,Y] ;
 }
 function click(evt){
+  evt.preventDefault() ;
   // Is it a right click?
   var rightclick ;
   if(!evt) var evt = window.event ;
