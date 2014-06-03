@@ -279,8 +279,8 @@ function cell_object(a,b){
     return result ;
   }
   this.rotate = function(perform_check){
-    if(perform_check) n_click++ ;
     if(this.locked) return ;
+    if(perform_check) n_click++ ;
     for(var i=0 ; i<3 ; i++) this.lines.push(this.lines.splice(0,1)) ;
     if(perform_check){
       n_rotate++ ;
