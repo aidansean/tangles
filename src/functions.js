@@ -314,7 +314,7 @@ function cell_object(a,b){
     if(this.locked){
       context.strokeStyle = 'rgb(150,150,150)' ;
       context.fillStyle   = 'rgb(150,150,150)' ;
-      if(level%6==5 || level%6==4){
+      if(level%6==5 || level%6==4 || level%6==1){
         context.strokeStyle = 'rgb(0,0,0)' ;
         context.fillStyle   = 'rgb(0,0,0)' ;
       }
