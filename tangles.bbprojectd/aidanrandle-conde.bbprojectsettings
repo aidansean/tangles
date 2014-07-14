@@ -5,7 +5,7 @@
 	<key>EmbeddedEditorHidden:aidanrandle-conde</key>
 	<false/>
 	<key>ExpandedEditorWidth:aidanrandle-conde:displays([(0, 0), (1680, 1050)]:[(1680, 0), (1920, 1080)])</key>
-	<integer>695</integer>
+	<integer>887</integer>
 	<key>ExpandedItems:aidanrandle-conde</key>
 	<array>
 		<string>E8F5D777-C6AF-48B0-89E9-898A56098FC1</string>
@@ -15,6 +15,45 @@
 	<integer>0</integer>
 	<key>OpenDocuments:aidanrandle-conde</key>
 	<array>
+		<dict>
+			<key>BookmarkData</key>
+			<data>
+			Ym9va/ADAAAAAAQQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+			AAAAAAAAAAAA4AIAAAUAAAABAQAAVXNlcnMAAAARAAAAAQEAAGFp
+			ZGFucmFuZGxlLWNvbmRlAAAACAAAAAEBAABQcm9qZWN0cw0AAAAB
+			AQAAcHJvamVjdHNfZGF0YQAAAAcAAAABAQAAdGFuZ2xlcwAKAAAA
+			AQEAAHByb2plY3QucHkAABgAAAABBgAABAAAABQAAAAwAAAAQAAA
+			AFgAAABoAAAACAAAAAQDAADpEAIAAAAAAAgAAAAEAwAAqMMFAAAA
+			AAAIAAAABAMAABuRqAEAAAAACAAAAAQDAAAamagBAAAAAAgAAAAE
+			AwAA6e2xAQAAAAAIAAAABAMAAAXusQEAAAAAGAAAAAEGAACcAAAA
+			rAAAALwAAADMAAAA3AAAAOwAAAAIAAAAAAQAAEG4yL6bAAAAGAAA
+			AAECAAABAAAAAAAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAQUAAAQA
+			AAADAwAAAQAAAAQAAAADAwAABAAAAAQAAAADAwAA9QEAAAwAAAAB
+			AQAATWFjaW50b3NoIEhECAAAAAQDAAAAIIg9OgAAAAgAAAAABAAA
+			QbbvkdoAAAAkAAAAAQEAADVDREZDNEU2LTIxQzQtM0JDRC04RUJG
+			LTM1OTIwRjg4NDA4RRgAAAABAgAAgQAAAAEACADvFwAAAQAIAAAA
+			AAAAAAAAAQAAAAEBAAAvAAAA0wAAAAECAAAxOWM3ZTZlODFlMzA5
+			NDI3ZGQwNGNlNWRlMGE5MGIxOTQ1M2JjOGVjOzAwMDAwMDAwOzAw
+			MDAwMDAwOzAwMDAwMDAwMDAwMDAwMjA7Y29tLmFwcGxlLmFwcC1z
+			YW5kYm94LnJlYWQtd3JpdGU7MDAwMDAwMDE7MDEwMDAwMDE7MDAw
+			MDAwMDAwMWIxZWUwNTsvdXNlcnMvYWlkYW5yYW5kbGUtY29uZGUv
+			cHJvamVjdHMvcHJvamVjdHNfZGF0YS90YW5nbGVzL3Byb2plY3Qu
+			cHkAANgAAAD+////AQAAAAAAAAARAAAABBAAAHwAAAAAAAAABRAA
+			APwAAAAAAAAAEBAAACwBAAAAAAAAQBAAABwBAAAAAAAAVRAAAFQB
+			AAAAAAAAVhAAAEwBAAAAAAAAAiAAAPgBAAAAAAAAECAAAHgBAAAA
+			AAAAESAAAKwBAAAAAAAAEiAAAIwBAAAAAAAAEyAAAJwBAAAAAAAA
+			ICAAANgBAAAAAAAAMCAAAEwBAAAAAAAAAcAAAGABAAAAAAAAEcAA
+			ABQAAAAAAAAAEsAAAGwBAAAAAAAAgPAAAAQCAAAAAAAA
+			</data>
+			<key>FileURL</key>
+			<string>file://localhost/Users/aidanrandle-conde/Projects/projects_data/tangles/project.py</string>
+			<key>RelativePath</key>
+			<string>./project.py</string>
+			<key>TypeID</key>
+			<string>_CFileLocator</string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>BookmarkData</key>
 			<data>
@@ -98,45 +137,6 @@
 		<dict>
 			<key>BookmarkData</key>
 			<data>
-			Ym9va/ADAAAAAAQQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			AAAAAAAAAAAA4AIAAAUAAAABAQAAVXNlcnMAAAARAAAAAQEAAGFp
-			ZGFucmFuZGxlLWNvbmRlAAAACAAAAAEBAABQcm9qZWN0cw0AAAAB
-			AQAAcHJvamVjdHNfZGF0YQAAAAcAAAABAQAAdGFuZ2xlcwAKAAAA
-			AQEAAHByb2plY3QucHkAABgAAAABBgAABAAAABQAAAAwAAAAQAAA
-			AFgAAABoAAAACAAAAAQDAADpEAIAAAAAAAgAAAAEAwAAqMMFAAAA
-			AAAIAAAABAMAABuRqAEAAAAACAAAAAQDAAAamagBAAAAAAgAAAAE
-			AwAA6e2xAQAAAAAIAAAABAMAAAXusQEAAAAAGAAAAAEGAACcAAAA
-			rAAAALwAAADMAAAA3AAAAOwAAAAIAAAAAAQAAEG4yL6bAAAAGAAA
-			AAECAAABAAAAAAAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAQUAAAQA
-			AAADAwAAAQAAAAQAAAADAwAABAAAAAQAAAADAwAA9QEAAAwAAAAB
-			AQAATWFjaW50b3NoIEhECAAAAAQDAAAAIIg9OgAAAAgAAAAABAAA
-			QbbvkdoAAAAkAAAAAQEAADVDREZDNEU2LTIxQzQtM0JDRC04RUJG
-			LTM1OTIwRjg4NDA4RRgAAAABAgAAgQAAAAEACADvFwAAAQAIAAAA
-			AAAAAAAAAQAAAAEBAAAvAAAA0wAAAAECAAAxOWM3ZTZlODFlMzA5
-			NDI3ZGQwNGNlNWRlMGE5MGIxOTQ1M2JjOGVjOzAwMDAwMDAwOzAw
-			MDAwMDAwOzAwMDAwMDAwMDAwMDAwMjA7Y29tLmFwcGxlLmFwcC1z
-			YW5kYm94LnJlYWQtd3JpdGU7MDAwMDAwMDE7MDEwMDAwMDE7MDAw
-			MDAwMDAwMWIxZWUwNTsvdXNlcnMvYWlkYW5yYW5kbGUtY29uZGUv
-			cHJvamVjdHMvcHJvamVjdHNfZGF0YS90YW5nbGVzL3Byb2plY3Qu
-			cHkAANgAAAD+////AQAAAAAAAAARAAAABBAAAHwAAAAAAAAABRAA
-			APwAAAAAAAAAEBAAACwBAAAAAAAAQBAAABwBAAAAAAAAVRAAAFQB
-			AAAAAAAAVhAAAEwBAAAAAAAAAiAAAPgBAAAAAAAAECAAAHgBAAAA
-			AAAAESAAAKwBAAAAAAAAEiAAAIwBAAAAAAAAEyAAAJwBAAAAAAAA
-			ICAAANgBAAAAAAAAMCAAAEwBAAAAAAAAAcAAAGABAAAAAAAAEcAA
-			ABQAAAAAAAAAEsAAAGwBAAAAAAAAgPAAAAQCAAAAAAAA
-			</data>
-			<key>FileURL</key>
-			<string>file://localhost/Users/aidanrandle-conde/Projects/projects_data/tangles/project.py</string>
-			<key>RelativePath</key>
-			<string>./project.py</string>
-			<key>TypeID</key>
-			<string>_CFileLocator</string>
-			<key>Version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>BookmarkData</key>
-			<data>
 			Ym9vayAEAAAAAAQQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 			AAAAAAAAAAAAEAMAAAUAAAABAQAAVXNlcnMAAAARAAAAAQEAAGFp
 			ZGFucmFuZGxlLWNvbmRlAAAACAAAAAEBAABQcm9qZWN0cw0AAAAB
@@ -186,7 +186,7 @@
 	<array>
 		<dict>
 			<key>Date</key>
-			<date>2014-06-03T12:12:38Z</date>
+			<date>2014-06-05T16:07:15Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -233,7 +233,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2014-06-03T12:12:34Z</date>
+			<date>2014-06-05T16:07:15Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -280,7 +280,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2014-06-03T12:12:34Z</date>
+			<date>2014-06-05T16:07:15Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -326,7 +326,7 @@
 		</dict>
 		<dict>
 			<key>Date</key>
-			<date>2014-06-03T12:12:33Z</date>
+			<date>2014-06-05T16:07:15Z</date>
 			<key>Location</key>
 			<dict>
 				<key>BookmarkData</key>
@@ -385,8 +385,8 @@
 	<key>ToolbarVisible:aidanrandle-conde</key>
 	<true/>
 	<key>ViewSplitterPosition:aidanrandle-conde</key>
-	<real>0.18256773054599762</real>
+	<real>0.17657992243766785</real>
 	<key>WindowFrame:aidanrandle-conde:displays([(0, 0), (1680, 1050)]:[(1680, 0), (1920, 1080)])</key>
-	<string>rect(88,44,996,893)</string>
+	<string>rect(88,44,982,1120)</string>
 </dict>
 </plist>

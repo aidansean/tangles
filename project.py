@@ -2,7 +2,7 @@ from project_module import project_object, image_object, link_object, challenge_
 
 p = project_object('tangles', 'Tangles')
 p.domain = 'http://www.aidansean.com/'
-p.path = 'indigo'
+p.path = 'tangles'
 p.preview_image_ = image_object('http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg', 408, 287)
 p.github_repo_name = 'tangles'
 p.mathjax = True
