@@ -288,20 +288,30 @@ function cell_object(a,b){
       check_success() ;
     }
   }
+  this.in_slider_range = function(){
+    var X1 = margin-b0*sw+(this.a+0)*sw ;
+    var Y1 = margin-a0*sw+(this.b+0)*sw ;
+    var X2 = margin-b0*sw+(this.a+1)*sw ;
+    var Y2 = margin-a0*sw+(this.b+1)*sw ;
+    if(X1>cw || X2<0) return false ;
+    if(Y1>ch || Y2<0) return false ;
+    return true ;
+  }
   this.draw_box  = function(){
-    if(level%6==0    ) this.color = ((this.a+this.b)%2==0) ? 'rgb(150,  0,  0)' : 'rgb(100,  0,  0)' ;
-    if(level%6==1    ) this.color = ((this.a+this.b)%2==0) ? 'rgb(  0,150,  0)' : 'rgb(  0,100,  0)' ;
-    if(level%6==2    ) this.color = ((this.a+this.b)%2==0) ? 'rgb(  0,  0,200)' : 'rgb(  0,  0,125)' ;
-    if(level%6==3    ) this.color = ((this.a+this.b)%2==0) ? 'rgb(150,  0,150)' : 'rgb(100,  0,100)' ;
-    if(level%6==4    ) this.color = ((this.a+this.b)%2==0) ? 'rgb(  0,150,150)' : 'rgb(  0,100,100)' ;
-    if(level%6==5    ) this.color = ((this.a+this.b)%2==0) ? 'rgb(150,150,  0)' : 'rgb(100,100,  0)' ;
-    //if(this.locked==true) this.color = 'rgb(0,0,0)' ;
-    context.fillStyle = this.color ;
+    if(this.in_slider_range()==false) return ;
     var x0 = margin-a0*sw ;
     var y0 = margin-b0*sh ;
+    if(level%6==0) this.color = ((this.a+this.b)%2==0) ? 'rgb(150,  0,  0)' : 'rgb(100,  0,  0)' ;
+    if(level%6==1) this.color = ((this.a+this.b)%2==0) ? 'rgb(  0,150,  0)' : 'rgb(  0,100,  0)' ;
+    if(level%6==2) this.color = ((this.a+this.b)%2==0) ? 'rgb(  0,  0,200)' : 'rgb(  0,  0,125)' ;
+    if(level%6==3) this.color = ((this.a+this.b)%2==0) ? 'rgb(150,  0,150)' : 'rgb(100,  0,100)' ;
+    if(level%6==4) this.color = ((this.a+this.b)%2==0) ? 'rgb(  0,150,150)' : 'rgb(  0,100,100)' ;
+    if(level%6==5) this.color = ((this.a+this.b)%2==0) ? 'rgb(150,150,  0)' : 'rgb(100,100,  0)' ;
+    context.fillStyle = this.color ;
     context.fillRect(x0+this.b*sw-0.5,y0+this.a*sh-0.5,sw+1,sh+1) ;
   }
   this.draw_line = function(){
+    if(this.in_slider_range()==false) return ;
     var x0 = margin-a0*sw ;
     var y0 = margin-b0*sh ;
     var n_links = 0 ;
@@ -499,6 +509,7 @@ function cell_object(a,b){
     }
   }
   this.draw_help = function(){
+    if(this.in_slider_range()==false) return ;
     var x0 = margin-a0*sw ;
     var y0 = margin-b0*sh ;
     if(help){
