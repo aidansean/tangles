@@ -22,10 +22,10 @@ var help  = false ;
 var debug = getParameterByName('debug') ;
 var sw_min = 50 ;
 var sh_min = 50 ;
-var sw = (cw-2*margin)/nCol ;
-var sh = (ch-2*margin)/nRow ;
 var sw_calc = (cw-2*margin)/nCol ;
 var sh_calc = (ch-2*margin)/nRow ;
+var sw = sw_calc ;
+var sh = sh_calc ;
 var a0 = 0.0 ;
 var b0 = 0.0 ;
 var margin = 20 ;
@@ -34,7 +34,7 @@ var slider_color = 'rgb(100,100,100)' ;
 var use_sliders = false ;
 
 function start(){
-  canvas  = document.getElementById('canvas_tangles') ;
+  canvas  = Get('canvas_tangles') ;
   context = canvas.getContext('2d') ;
   context.lineCap = 'round' ;
   
@@ -53,27 +53,27 @@ function start(){
   nCol = 2+level ;
   
   remake_cells() ;
-  draw_grid() ;
+  draw_all() ;
   canvas.addEventListener('mousedown',click) ;
-  document.getElementById('input_graphics'   ).addEventListener('click',change_graphics) ;
-  document.getElementById('input_help'       ).addEventListener('click',toggle_help    ) ;
-  document.getElementById('input_autosolve'  ).addEventListener('click',iterate        ) ;
-  document.getElementById('input_sliders'    ).addEventListener('click',toggle_sliders ) ;
-  document.getElementById('input_canvas_size').addEventListener('click',change_size    ) ;
-  document.getElementById('input_canvas_size_750').addEventListener('click',change_size_750) ;
-  document.getElementById('input_canvas_size_600').addEventListener('click',change_size_600) ;
-  document.getElementById('input_canvas_size_500').addEventListener('click',change_size_500) ;
+  Get('input_graphics'       ).addEventListener('click',change_graphics) ;
+  Get('input_help'           ).addEventListener('click',toggle_help    ) ;
+  Get('input_autosolve'      ).addEventListener('click',iterate        ) ;
+  Get('input_sliders'        ).addEventListener('click',toggle_sliders ) ;
+  Get('input_canvas_size'    ).addEventListener('click',change_size    ) ;
+  Get('input_canvas_size_750').addEventListener('click',change_size_750) ;
+  Get('input_canvas_size_600').addEventListener('click',change_size_600) ;
+  Get('input_canvas_size_500').addEventListener('click',change_size_500) ;
   canvas.addEventListener("contextmenu", function(e){ e.preventDefault() ; }, false) ;
   
-  document.getElementById('span_level').innerHTML = level ;
+  Get('span_level').innerHTML = level ;
 }
 
 function change_size_750(){ resize_canvas(750,750) ; }
 function change_size_600(){ resize_canvas(600,600) ; }
 function change_size_500(){ resize_canvas(500,500) ; }
 function change_size(){
-  var w = parseInt(document.getElementById('input_canvas_width' ).value) ;
-  var h = parseInt(document.getElementById('input_canvas_height').value) ;
+  var w = parseInt(Get('input_canvas_width' ).value) ;
+  var h = parseInt(Get('input_canvas_height').value) ;
   resize_canvas(w,h) ;
 }
 function resize_canvas(w,h){
@@ -82,10 +82,10 @@ function resize_canvas(w,h){
   canvas.width  = cw ;
   canvas.height = ch ;
   context.lineCap = 'round' ;
-  a0 = 0 ;
-  b0 = 0 ;
+  a0 = 0.0 ;
+  b0 = 0.0 ;
   update_cellSize() ;
-  draw_grid() ;
+  draw_all() ;
 }
 
 function update_cellSize(){
@@ -123,25 +123,27 @@ function iterate(){
     check_success() ;
   }
   update_stats() ;
-  draw_grid() ;
+  draw_all() ;
   alert('I did my best, but I have failed you.  Can you ever forgive me?  I left you with ' + n_rotate + ' clicks.') ;
   player = 'human' ;
 }
 
 function toggle_help(){
   help = !help ;
-  draw_grid() ;
+  draw_all() ;
 }
 function toggle_sliders(){
   use_sliders = !use_sliders ;
+  a0 = 0.0 ;
+  b0 = 0.0 ;
   update_cellSize() ;
-  draw_grid() ;
+  draw_all() ;
 }
 
 function change_graphics(){
   graphic_set++ ;
   if(graphic_set>n_graphic_sets) graphic_set = 1 ;
-  draw_grid() ;
+  draw_all() ;
 }
 
 function check_success(){
@@ -151,10 +153,11 @@ function check_success(){
     }
   }
   if(player=='computer'){
-    draw_grid() ;
+    draw_all() ;
     alert('I worked very hard for you and solved the puzzle in '+ n_rotate +' clicks.') ;
     player = 'human' ;
-  }else if(player=='human'){
+  }
+  else if(player=='human'){
     update_stats() ;
     var computer_congrats = (n_click>=clicks_to_solve) ? '' : '  In your face, computer!' ;
     alert('Congratulations!  You solved the puzzle with '+ n_click +' clicks!\n\n(According to your computer, it could have been solved in '+ clicks_to_solve +' clicks.'+computer_congrats+')') ;
@@ -167,14 +170,14 @@ function next_level(){
   nCol = level+2 ;
   remake_cells() ;
   setCookie('tangles_level',level,300) ;
-  document.getElementById('span_level').innerHTML = level ;
-  draw_grid() ;
+  Get('span_level').innerHTML = level ;
+  draw_all() ;
   n_click  = 0 ;
   n_rotate = 0 ;
   n_lock   = 0 ;
-  document.getElementById('span_click' ).innerHTML = n_click  ;
-  document.getElementById('span_rotate').innerHTML = n_rotate ;
-  document.getElementById('span_lock'  ).innerHTML = n_lock   ;
+  Get('span_click' ).innerHTML = n_click  ;
+  Get('span_rotate').innerHTML = n_rotate ;
+  Get('span_lock'  ).innerHTML = n_lock   ;
 }
 
 function getParameterByName(name){
@@ -284,23 +287,23 @@ function cell_object(a,b){
     for(var i=0 ; i<3 ; i++) this.lines.push(this.lines.splice(0,1)) ;
     if(perform_check){
       n_rotate++ ;
-      draw_grid() ;
+      draw_all() ;
       check_success() ;
     }
   }
   this.in_slider_range = function(){
-    var X1 = margin-b0*sw+(this.a+0)*sw ;
-    var Y1 = margin-a0*sw+(this.b+0)*sw ;
-    var X2 = margin-b0*sw+(this.a+1)*sw ;
-    var Y2 = margin-a0*sw+(this.b+1)*sw ;
+    var X1 = margin-b0*sw+(this.b+0)*sw ;
+    var Y1 = margin-a0*sw+(this.a+0)*sw ;
+    var X2 = margin-b0*sw+(this.b+1)*sw ;
+    var Y2 = margin-a0*sw+(this.a+1)*sw ;
     if(X1>cw || X2<0) return false ;
     if(Y1>ch || Y2<0) return false ;
     return true ;
   }
   this.draw_box  = function(){
     if(this.in_slider_range()==false) return ;
-    var x0 = margin-a0*sw ;
-    var y0 = margin-b0*sh ;
+    var x0 = margin-b0*sw ;
+    var y0 = margin-a0*sh ;
     if(level%6==0) this.color = ((this.a+this.b)%2==0) ? 'rgb(150,  0,  0)' : 'rgb(100,  0,  0)' ;
     if(level%6==1) this.color = ((this.a+this.b)%2==0) ? 'rgb(  0,150,  0)' : 'rgb(  0,100,  0)' ;
     if(level%6==2) this.color = ((this.a+this.b)%2==0) ? 'rgb(  0,  0,200)' : 'rgb(  0,  0,125)' ;
@@ -312,8 +315,8 @@ function cell_object(a,b){
   }
   this.draw_line = function(){
     if(this.in_slider_range()==false) return ;
-    var x0 = margin-a0*sw ;
-    var y0 = margin-b0*sh ;
+    var x0 = margin-b0*sw ;
+    var y0 = margin-a0*sh ;
     var n_links = 0 ;
     for(var i=0 ; i<4 ; i++){
       if(this.lines[i]==1) n_links++ ;
@@ -510,8 +513,8 @@ function cell_object(a,b){
   }
   this.draw_help = function(){
     if(this.in_slider_range()==false) return ;
-    var x0 = margin-a0*sw ;
-    var y0 = margin-b0*sh ;
+    var x0 = margin-b0*sw ;
+    var y0 = margin-a0*sh ;
     if(help){
       context.beginPath() ;
       context.strokeStyle = 'rgb(255,0,0)' ;
@@ -603,7 +606,7 @@ function remake_cells(){
     }
   }
   update_cellSize() ;
-  draw_grid() ;
+  draw_all() ;
 }
 function XY_from_mouse(evt){
   var X = evt.pageX - evt.target.offsetLeft ;
@@ -621,17 +624,18 @@ function click(evt){
   var XY = XY_from_mouse(evt) ;
   var X = XY[0] ;
   var Y = XY[1] ;
-  var a = Math.floor(a0+nRow_calc*(X-margin)/(ch-2*margin)) ;
-  var b = Math.floor(b0+nCol_calc*(Y-margin)/(cw-2*margin)) ;
+  var b = Math.floor(b0+nRow_calc*(X-margin)/(ch-2*margin)) ;
+  var a = Math.floor(a0+nCol_calc*(Y-margin)/(cw-2*margin)) ;
   if(a>=0 && a<nRow && Y>margin && Y<ch-margin){
     if(b>=0 && b<nCol && X>margin && X<cw-margin){
+      var c = cells[a][b] ;
       if(rightclick){
-        cells[b][a].locked = !cells[b][a].locked ;
+        c.locked = !c.locked ;
         n_lock++ ;
-        draw_grid() ;
+        draw_all() ;
       }
       else{
-        cells[b][a].rotate(true) ;
+        c.rotate(true) ;
       }
     }
   }
@@ -639,36 +643,42 @@ function click(evt){
     var x_frac   = (cw-2*margin)*sw_calc/sw_min ;
     var X_slider = (X<0.5*cw) ? Math.max(0.5*x_frac,X) : Math.min(cw-0.5*x_frac,X) ;
     var X_min    = X_slider - 0.5*x_frac ; // Move to start of slider
-    var a_from_slider = 1.0*Math.floor(1*(X_min-margin)/(cw-2*margin)*nCol) ;
-    a0 = a_from_slider ;
-    if(a0<0) a0 = 0 ;
-    //if(a0>nCol*(1-x_frac)) a0 = nCol*(1-x_frac) ;
-    draw_grid() ;
+    var b_from_slider = 1.0*Math.floor(1*(X_min-margin)/(cw-2*margin)*nCol) ;
+    b0 = b_from_slider ;
+    if(b0<0) b0 = 0 ;
+    if(b0>=nCol-1) b0 = nCol-1 ;
+    draw_all() ;
   }
   if((X<margin || X>cw-margin) && (Y>margin && Y<ch-margin)){
     var y_frac   = (ch-2*margin)*sh_calc/sh_min ;
     var Y_slider = (Y<0.5*ch) ? Math.max(0.5*y_frac,Y) : Math.min(ch-0.5*y_frac,Y) ;
     var Y_min    = Y_slider - 0.5*y_frac ; // Move to start of slider
-    var b_from_slider = 1.0*Math.floor(1*(Y_min-margin)/(ch-2*margin)*nRow) ;
-    b0 = b_from_slider ;
-    if(b0<0) b0 = 0 ;
-    //if(b0>nRow*(1-y_frac)) b0 = nRow*(1-y_frac) ;
-    draw_grid() ;
+    var a_from_slider = 1.0*Math.floor(1*(Y_min-margin)/(ch-2*margin)*nRow) ;
+    a0 = a_from_slider ;
+    if(a0<0) a0 = 0 ;
+    if(a0>=nRow-1) a0 = nRow-1 ;
+    draw_all() ;
   }
   update_stats() ;
 }
 function update_stats(){
-  document.getElementById('span_click' ).innerHTML = n_click  ;
-  document.getElementById('span_rotate').innerHTML = n_rotate ;
-  document.getElementById('span_lock'  ).innerHTML = n_lock   ;
+  Get('span_click' ).innerHTML = n_click  ;
+  Get('span_rotate').innerHTML = n_rotate ;
+  Get('span_lock'  ).innerHTML = n_lock   ;
+}
+
+function draw_all(){
+  draw_grid() ;
+  draw_margins() ;
+  draw_sliders() ;
 }
 function draw_sliders(){
   if(use_sliders==false) return ;
   if(sw_calc>=sw_min && sh_calc>=sh_min) return ;
   var line_x_length = (cw-2*margin)*sw_calc/sw_min ;
   var line_y_length = (ch-2*margin)*sh_calc/sh_min ;
-  var line_x_start  = margin+(cw-2*margin)*a0/nCol ;
-  var line_y_start  = margin+(cw-2*margin)*b0/nCol ;
+  var line_x_start  = margin+(cw-2*margin)*b0/nCol ;
+  var line_y_start  = margin+(cw-2*margin)*a0/nCol ;
   if(line_x_start+line_x_length>cw-margin) line_x_start = cw-margin-line_x_length ;
   if(line_y_start+line_y_length>ch-margin) line_y_start = ch-margin-line_y_length ;
   
@@ -706,11 +716,10 @@ function draw_grid(){
       cells[i][j].draw_line() ;
     }
   }
-  draw_margins() ;
-  draw_sliders() ;
   for(var i=0 ; i<nRow ; i++){
     for(var j=0 ; j<nCol ; j++){
       cells[i][j].draw_help() ;
     }
   }
 }
+function Get(id){ return document.getElementById(id) ; }
