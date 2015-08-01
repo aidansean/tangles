@@ -1,0 +1,58 @@
+canvas#canvas_tangles{
+  width  : 100% ;
+  border : 2px solid black ;
+  margin : auto ;
+}
+input#button_canvas_width, input#button_canvas_height{
+  font-size : 16pt ;
+  width : 4em ;
+}
+button.tangles_button{
+  font-size : 14pt ;
+  width : 13em ;
+}
+table#table_stats, table#table_settings, table#table_level{
+  display : inline-block ;
+}
+th.stats{
+  text-align : center ;
+  color :white ;
+  background : black ;
+}
+th.stats, td.stats{
+  width : 7em ;
+  font : 16pt arial , sans-serif ;
+}
+td.stats{
+  text-align : left ;
+  color :black ;
+  background : white ;
+  width : 4em ;
+  text-align : center ;
+}
+th#th_statistics{
+  border-top-left-radius  : 1em ;
+  border-top-right-radius : 1em ;
+}
+td#td_score    { border-bottom-right-radius : 1em ; }
+th#th_score    { border-bottom-left-radius  : 1em ; }
+
+th#th_settings, th#th_level, th#th_statistics{
+  border-top-left-radius  : 1em ;
+  border-top-right-radius : 1em ;
+  text-align : center ;
+  background : black ;
+  color : white ;
+  font : 14pt arial , sans-serif ;
+}
+td#td_sliders, td#td_level{
+  border-bottom-left-radius  : 1em ;
+  border-bottom-right-radius : 1em ;
+  text-align : center ;
+  font : 16pt arial , sans-serif ;
+  background : white ;
+}
+div#div_table_wrapper{
+  vertical-align : top ;
+  text-align : center ;
+}

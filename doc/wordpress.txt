@@ -1,3 +1,5 @@
+[mathjax]
+
 I love to create games and I try to keep up with the latest web based technology to create open source games.  When it became clear that all the modern browsers support the canvas I decided to create this game to see what I could make.  It's a clone of similar games such as Loops of Zen.
 
 <h3>Links</h3>
